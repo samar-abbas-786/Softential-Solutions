@@ -103,6 +103,9 @@ This project is currently not licensed for commercial use.
 ## Author
 
 - [samar-abbas-786](https://github.com/samar-abbas-786)
+- [m-atharkhan](https://github.com/m-atharkhan)
+
 
 ---
 For issues or contributions, please open a GitHub issue or pull request.
+
