@@ -15,9 +15,8 @@ app.use(
   })
 );
 
-
 const corsOptions = {
-  origin: "http://localhost:3000", 
+  origin: "https://customer-management-omega.vercel.app",
   credentials: true,
   optionsSuccessStatus: 200,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
