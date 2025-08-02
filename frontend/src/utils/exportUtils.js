@@ -36,7 +36,6 @@ export const exportToCSV = (data, filename = "customers.csv") => {
 };
 
 export const exportToExcel = (data, filename = "customers.xlsx") => {
-  // For simplicity, we'll export as CSV with .xlsx extension
-  // In a real application, you might want to use a library like xlsx
+  
   exportToCSV(data, filename.replace(".xlsx", ".csv"));
 };

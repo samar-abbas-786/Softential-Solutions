@@ -1,4 +1,3 @@
-// frontend/src/components/Customer/CustomerList.js
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
@@ -186,7 +185,6 @@ const CustomerList = () => {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="filters-section">
         <div className="filters-row">
           <div className="filter-group">
@@ -222,7 +220,6 @@ const CustomerList = () => {
         </div>
       </div>
 
-      {/* Export Buttons */}
       <div className="export-section">
         <div className="export-info">
           <span>Total Customers: {pagination.total}</span>
@@ -245,7 +242,6 @@ const CustomerList = () => {
         </div>
       </div>
 
-      {/* Customer Table */}
       {loading ? (
         <div className="loading-overlay">
           <LoadingSpinner />
@@ -314,12 +310,10 @@ const CustomerList = () => {
             </table>
           </div>
 
-          {/* Pagination */}
           {pagination.totalPages > 1 && renderPagination()}
         </>
       )}
 
-      {/* Delete Confirmation Modal */}
       <Modal
         isOpen={deleteModal.isOpen}
         onClose={() =>

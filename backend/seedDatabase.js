@@ -6,15 +6,12 @@ const User = require('./models/User');
 
 const seedDatabase = async () => {
   try {
-    // Connect to MongoDB
     await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/customer_management');
     console.log('MongoDB connected for seeding...');
 
-    // Clear existing users
     await User.deleteMany({});
     console.log('Existing users cleared');
 
-    // Create default admin user
     const adminUser = new User({
       username: 'admin',
       email: 'admin@example.com',

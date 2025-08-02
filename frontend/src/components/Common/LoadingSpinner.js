@@ -1,6 +1,3 @@
-
-
-// frontend/src/components/Common/LoadingSpinner.js
 import React from 'react';
 import { ClipLoader } from 'react-spinners';
 

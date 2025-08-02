@@ -59,7 +59,6 @@ const authReducer = (state, action) => {
 export const AuthProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialState);
 
-  // Load user on mount if token exists
   useEffect(() => {
     const loadUser = async () => {
       if (state.token) {

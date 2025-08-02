@@ -28,7 +28,7 @@ const CustomerForm = () => {
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
-      if (file.size > 5 * 1024 * 1024) { // 5MB limit
+      if (file.size > 5 * 1024 * 1024) { 
         toast.error('File size must be less than 5MB');
         return;
       }
@@ -41,7 +41,6 @@ const CustomerForm = () => {
 
       setProfilePicture(file);
       
-      // Create preview
       const reader = new FileReader();
       reader.onloadend = () => {
         setPreviewImage(reader.result);

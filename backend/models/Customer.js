@@ -69,7 +69,6 @@ const customerSchema = new mongoose.Schema(
   }
 );
 
-// Index for better search performance
 customerSchema.index({
   fullName: "text",
   email: "text",

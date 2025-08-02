@@ -3,12 +3,10 @@ const Customer = require('../models/Customer');
 const fs = require('fs');
 const path = require('path');
 
-// Get all customers with pagination and search
 const getCustomers = async (req, res) => {
   try {
     const { page = 1, limit = 10, search = '', state = '', city = '' } = req.query;
     
-    // Build search query
     let query = { isActive: true };
     
     if (search) {
@@ -47,7 +45,6 @@ const getCustomers = async (req, res) => {
   }
 };
 
-// Get customer by ID
 const getCustomer = async (req, res) => {
   try {
     const customer = await Customer.findById(req.params.id)
@@ -64,7 +61,6 @@ const getCustomer = async (req, res) => {
   }
 };
 
-// Create new customer
 const createCustomer = async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -89,7 +85,6 @@ const createCustomer = async (req, res) => {
 
     res.status(201).json(populatedCustomer);
   } catch (error) {
-    // Delete uploaded file if customer creation fails
     if (req.file) {
       fs.unlink(req.file.path, (err) => {
         if (err) console.error('Error deleting file:', err);
@@ -105,7 +100,6 @@ const createCustomer = async (req, res) => {
   }
 };
 
-// Update customer
 const updateCustomer = async (req, res) => {
   try {
     const errors = validationResult(req);
@@ -118,7 +112,6 @@ const updateCustomer = async (req, res) => {
       return res.status(404).json({ message: 'Customer not found' });
     }
 
-    // Delete old profile picture if new one is uploaded
     if (req.file && customer.profilePicture) {
       const oldImagePath = path.join(__dirname, '..', customer.profilePicture);
       fs.unlink(oldImagePath, (err) => {
@@ -154,7 +147,6 @@ const updateCustomer = async (req, res) => {
   }
 };
 
-// Soft delete customer
 const deleteCustomer = async (req, res) => {
   try {
     const customer = await Customer.findById(req.params.id);
@@ -172,7 +164,6 @@ const deleteCustomer = async (req, res) => {
   }
 };
 
-// Get all customers for export (no pagination)
 const getCustomersForExport = async (req, res) => {
   try {
     const { search = '', state = '', city = '' } = req.query;
