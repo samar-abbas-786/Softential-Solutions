@@ -272,7 +272,7 @@ const CustomerList = () => {
                     <td>
                       {customer.profilePicture ? (
                         <img
-                          src={`http://localhost:3000${customer.profilePicture}`}
+                          src={`https://customer-management-backend-dc96.onrender.com${customer.profilePicture}`}
                           alt={customer.fullName}
                           className="profile-image-small"
                         />

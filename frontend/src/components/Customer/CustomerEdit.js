@@ -40,7 +40,9 @@ const CustomerEdit = () => {
       });
 
       if (customer.profilePicture) {
-        setCurrentImage(`http://localhost:3000${customer.profilePicture}`);
+        setCurrentImage(
+          `https://customer-management-backend-dc96.onrender.com${customer.profilePicture}`
+        );
       }
     } catch (error) {
       console.error("Fetch customer error:", error);

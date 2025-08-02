@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { toast } from 'react-toastify';
-import { useAuth } from '../../context/AuthContext';
-import LoadingSpinner from '../Common/LoadingSpinner';
+import React, { useState } from "react";
+import { toast } from "react-toastify";
+import { useAuth } from "../../context/AuthContext";
+import LoadingSpinner from "../Common/LoadingSpinner";
 
 const ChangePassword = () => {
   const [formData, setFormData] = useState({
-    currentPassword: '',
-    newPassword: '',
-    confirmPassword: ''
+    currentPassword: "",
+    newPassword: "",
+    confirmPassword: "",
   });
   const [loading, setLoading] = useState(false);
   const { changePassword } = useAuth();
@@ -15,20 +15,20 @@ const ChangePassword = () => {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (formData.newPassword !== formData.confirmPassword) {
-      toast.error('New passwords do not match');
+      toast.error("New passwords do not match");
       return;
     }
 
     if (formData.newPassword.length < 6) {
-      toast.error('New password must be at least 6 characters long');
+      toast.error("New password must be at least 6 characters long");
       return;
     }
 
@@ -36,15 +36,15 @@ const ChangePassword = () => {
 
     const result = await changePassword({
       currentPassword: formData.currentPassword,
-      newPassword: formData.newPassword
+      newPassword: formData.newPassword,
     });
 
     if (result.success) {
       toast.success(result.message);
       setFormData({
-        currentPassword: '',
-        newPassword: '',
-        confirmPassword: ''
+        currentPassword: "",
+        newPassword: "",
+        confirmPassword: "",
       });
     } else {
       toast.error(result.message);
@@ -111,7 +111,11 @@ const ChangePassword = () => {
                 disabled={loading}
                 className="btn btn-primary"
               >
-                {loading ? <LoadingSpinner size={20} color="#ffffff" /> : 'Change Password'}
+                {loading ? (
+                  <LoadingSpinner size={20} color="#ffffff" />
+                ) : (
+                  "Change Password"
+                )}
               </button>
             </div>
           </form>
